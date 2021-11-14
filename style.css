@@ -1,0 +1,110 @@
+/* The basics */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body{
+    background-color: #1e1e1e;
+    min-width: 100vw; min-height: 100vh;
+    display: grid; place-items: center;
+}
+
+
+
+/* continer */
+
+
+
+
+/* carousel */
+body .carousel{
+    height: 500px; width: 700px;
+    background-color: aliceblue;
+    border-radius: 40px 40px 4px 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* carousel-items */
+body .carousel > .items {
+    height: 100%; width: 100%;
+    position: relative; overflow: hidden;
+}
+body .carousel > .items > .item{
+    position: absolute; top: 50%; left: 50%;
+    height: 90%; width: 90%; 
+    transition: .6s ease all;
+}
+body .carousel > .items > .item.active{
+    transform: translate(-50% ,-50%);
+}
+body .carousel > .items > .item:not(.item.active, .item.active ~ .item){transform: translate(-200%, -50%);}
+body .carousel > .items > .item.active~.item{transform: translate(100%, -50%);}
+/* colored items */
+body .carousel > .items > .item:nth-child(1){
+    background: #000;
+}
+body .carousel > .items > .item:nth-child(2){
+    background: rgb(255, 0, 0);
+}
+body .carousel > .items > .item:nth-child(3){
+    background: rgb(187, 255, 0);
+}
+body .carousel > .items > .item:nth-child(4){
+    background: rgb(0, 255, 221);
+}
+body .carousel > .items > .item:nth-child(5){
+    background: rgb(38, 0, 255);
+}
+body .carousel > .items > .item:nth-child(6){
+    background: rgb(255, 0, 255);
+}
+ 
+
+/* carousel-lines */
+body .carousel > .lines{
+    width: 100%; height: 10px;
+    position: absolute; bottom: 2%;
+    display: flex; justify-content: center; align-items: center;
+}
+body .carousel > .lines > .line{
+    height: 60%; background: black;
+    padding: 0 4px;
+    border-left: 1px solid white; border-right: 1px solid white;
+    flex-grow: 1;
+    transition: .4s ease flex-grow;
+    cursor: pointer;
+}
+body .carousel > .lines > .line:first-child{
+    border-left: none;
+}
+body .carousel > .lines > .line:last-child{
+    border-right: none;
+}
+body .carousel > .lines > .line.active{
+    flex-grow: 10;
+    height:100%;
+    border-radius: 100px;
+    border-left: 1px solid white; border-right: 1px solid white;
+    cursor: default;
+}
+
+
+
+
+/* carousel-btns  */
+body .carousel > .btns{
+    color: black;
+    width: 100%;
+    position: absolute; top: 50%; transform: translateY(-50%);
+    display: flex; align-items: center; justify-content: space-between;
+}
+body .carousel > .btns > .btn{
+    color: inherit; font-size: 3rem;
+    cursor: pointer; user-select: none;
+    margin: 0 0px ; padding: 10px;
+}
