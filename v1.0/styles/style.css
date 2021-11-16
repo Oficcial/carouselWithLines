@@ -1,0 +1,127 @@
+/* The basics */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body{
+    background-color: hsl(0, 0%, 20%); overflow-x: hidden;
+}
+
+
+
+/* continer */
+body > .container{
+    min-width: 100vw; min-height: 100vh;
+    display: grid; place-items: center;
+}
+
+
+
+/* carousel */
+body .JfwrbnD{
+    height: 500px; width: 700px;
+    background-color: aliceblue;
+    border-radius: 40px 40px 4px 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* carousel-items */
+.JfwrbnD > .items {
+    height: 100%; width: 100%;
+    position: relative; overflow: hidden;
+}
+.JfwrbnD > .items > .item{
+    position: absolute; top: 50%; left: 50%;
+    height: 90%; width: 90%; 
+    transition: .6s ease all;
+
+    /* for the background */
+    background-position: center;
+    background-size: 100%;
+    border-radius: 21px ;
+    border: 2px solid black;
+}
+.JfwrbnD > .items > .item.active{
+    transform: translate(-50% ,-50%);
+}
+.JfwrbnD > .items > .item:not(.item.active, .item.active ~ .item){transform: translate(-160%, -50%);}
+.JfwrbnD > .items > .item.active~.item{transform: translate(60%, -50%);}
+/* custom backgrounds for the items */
+.JfwrbnD > .items > .item:nth-child(1){
+    background-image: url(imgs/img1.jpg);
+}
+.JfwrbnD > .items > .item:nth-child(2){
+    background-image: url(imgs/img2.jpg);
+}
+.JfwrbnD > .items > .item:nth-child(3){
+    background-image: url(imgs/img3.jpg);
+}
+.JfwrbnD > .items > .item:nth-child(4){
+    background-image: url(imgs/img4.jpg);
+}
+.JfwrbnD > .items > .item:nth-child(5){
+    background-image: url(imgs/img5.jpg);
+}
+.JfwrbnD > .items > .item:nth-child(6){
+    background-image: url(imgs/img6.jpg);
+}
+ 
+
+/* carousel-lines */
+.JfwrbnD > .lines{
+    width: 100%; height: 10px;
+    position: absolute; bottom: 1px;
+    display: flex; justify-content: center; align-items: center;
+}
+.JfwrbnD > .lines > .line{
+    height: 60%; background: black;
+    padding: 0 4px;
+    border-left: 1px solid white; border-right: 1px solid white;
+    flex-grow: 1;
+    transition: .4s ease flex-grow;
+    cursor: pointer;
+}
+.JfwrbnD > .lines > .line:first-child, .JfwrbnD > .lines > .line:first-child.active{
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.JfwrbnD > .lines > .line:last-child, .JfwrbnD > .lines > .line:last-child.active{
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.JfwrbnD > .lines > .line.active{
+    flex-grow: 10;
+    height:100%;
+    border-radius: 100px;
+    border-left: 1px solid white; border-right: 1px solid white;
+    cursor: default;
+}
+
+
+
+
+/* carousel-btns  */
+.JfwrbnD > .btns{
+    color: black;
+    width: 100%;
+    position: absolute; top: 50%; transform: translateY(-50%);
+    display: flex; align-items: center; justify-content: space-between;
+}
+.JfwrbnD > .btns > .btn{
+    color: inherit; font-size: 3rem;
+    cursor: pointer; user-select: none;
+    margin: 0 0px ; padding: 10px;
+}
+.JfwrbnD > .btns > .btn.before::before{
+    content: "\276c";
+}
+.JfwrbnD > .btns > .btn.after::before{
+    content: "\276D";
+}
